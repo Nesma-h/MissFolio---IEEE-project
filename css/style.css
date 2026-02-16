@@ -1,4 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@font-face {
+  font-family: "Fira Sans";
+  src: url('../font/Fira_Sans/FiraSans-Regular.ttf')
+}
 
 :root {
   --nav-bar-background-color: #1b192fd0;
@@ -79,7 +82,6 @@ nav ul{
   list-style: none;
   position: relative;
 }
-
 nav ul li{
   padding: 35px 5px;
   position: relative;
@@ -163,27 +165,19 @@ nav .click:hover{
 #click{
   display: none;
 }
-nav ul .logo{
-  display: none;
-}
-nav ul .fa-circle-xmark{
+
+nav .sidenav .fa-circle-xmark{
   position: absolute;
   top: 15px;
   right: 20px;
   font-size: 25px;
   color: red;
   transition: 0.5s;
-  display:none;
-}nav ul .fa-circle-xmark:hover {
+}nav .sidenav .fa-circle-xmark:hover {
   color: rgb(138, 25, 25);
 }
 nav ul .fa-circle-xmark:active{
   transform: translate(3px);
-}
-#click:checked ~ ul {
-  visibility: visible;
-  transform: translateX(0);
-  transition: 0.5s;
 }
 .overlay{
   background-color:#1b1c3d6a;
@@ -197,29 +191,36 @@ nav ul .fa-circle-xmark:active{
   display: none;
   z-index: 2000;
 }
-
-@media (max-width: 850px) {
-  nav > .logo{
-    margin: 20px 0;
-  }
-  nav ul{
-    flex-direction: column;
-    position: fixed;
+.sidenav{
+  visibility: hidden;
+   position: fixed;
     top: 0;
     bottom: 0;
     left: 0;
     background: rgba(27, 25, 47, 0.774);
     padding: 20px;
-    gap: 20px;
-    width: 50%;
-   visibility: hidden;
-   transform: translateX(-100%);
+    transform: translateX(-100%);
    backdrop-filter: blur(12px);
    -webkit-backdrop-filter: blur(12px);
    border-right: 1px solid rgba(172, 154, 219, 0.1);
    box-shadow: 10px 0 30px rgba(0, 0, 0, 0.4);
    z-index: 2500;
-  } nav ul li{
+    width: 50%;
+    transition: 0.5s;
+}.sidenav ul{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  /* background-color: #e07a9a; */
+}
+@media (max-width: 1050px) {
+  nav  .logo{
+    margin: 25px 0;
+  }
+  nav >ul{
+    display: none;
+  }
+  nav ul li{
     width: max-content;
     padding: 10px;
   }
@@ -232,24 +233,26 @@ nav ul .fa-circle-xmark:active{
   nav .click{
     display: inline-block;
   }
-  nav ul .logo{
-    display: block;
-  }
-  nav ul .fa-circle-xmark{
-    display: inline;
-  }
+  
   #click:checked ~ .overlay{
   display: block;
+  }
+  #click:checked ~ .sidenav {
+  visibility: visible;
+  transform: translateX(0);
+  transition: 0.5s;
 }
+
 }
+
 
 @media (max-width : 480px) {
     nav button{
       display: none;
     }
-    nav ul .logo span{
+    nav .sidenav .logo span{
       font-size: 25px;
-    }nav ul .logo i{
+    }nav .sidenav .logo i{
       font-size: 20px;
     }
 }@media (max-width : 350px) {
@@ -258,19 +261,20 @@ nav ul .fa-circle-xmark:active{
     }nav .logo i{
       font-size: 20px;
     }
-    nav ul{
+    nav .sidenav{
       width: 70%;
     }
-}@media (max-width : 250px){
+}@media (max-width : 390px){
   nav{
     padding: 5px;
   }
-  nav ul{
+  nav .sidenav{
       width: 90%;
   }
+
 }
 
-/* End Nav */
+/* End of Vav*/
 
 
 /* Our team */
@@ -398,6 +402,7 @@ nav ul .fa-circle-xmark:active{
 @media (max-width:990px){
   .ourTeam .members{
         grid-template-columns: 1fr 1fr;
+        gap: 70px;
     }
 }@media (max-width:650px){
    .ourTeam .members{
@@ -666,11 +671,14 @@ nav ul .fa-circle-xmark:active{
 
 .form input , .form textarea , .form select  {
     width: 100%;
-    padding: 7px 10px;
     margin-top: 1vw;
     margin-bottom: 1vw;
-    border: none;
-    border-radius: 20px;
+    border:none;
+    padding: 12px 15px;
+    border-radius: 10px;
+    outline: none;
+    font-size: 14px;
+    transition: 0.3s ease;
 }
 
 
@@ -954,7 +962,7 @@ footer {
 
 .HOW-create {
   padding: 50px 7%;
-  background-color: var(--section-background-color);
+  /* background-color: var(--section-background-color); */
   text-align: center;
 }
 .HOW-create h2 {
@@ -967,7 +975,7 @@ footer {
   gap: 40px;
 }
 .HOW-create .images > div {
-  background-color: var(--body-background-color);
+  background-color: var(--section-background-color);
   border-radius: 20px;
   padding: 30px 20px;
   display: flex;
@@ -987,7 +995,7 @@ footer {
   transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
-.HOW-create .images > div h2 {
+.HOW-create .images > div h3 {
   font-size: 20px;
   margin-bottom: 10px;
   color: var(--text-color-purple);
@@ -1004,10 +1012,6 @@ footer {
   box-shadow: 0 20px 40px rgba(172, 154, 219, 0.6);
 }
 
-.HOW-create .images > div:hover img {
-  transform: scale(1.2);
-  box-shadow: 0 0 25px rgba(172, 154, 219, 0.7);
-}
 
 @media screen and (max-width: 1024px) {
   .HOW-create .images {
@@ -1180,9 +1184,8 @@ footer {
       }
   }
 
-  @media screen and (max-width: 1124px) {
+  @media screen and (max-width: 1170px) {
       .reviews .reviews-container {
-          flex-direction: row;
           gap: 20px;
           justify-content: center;
           flex-wrap: wrap;

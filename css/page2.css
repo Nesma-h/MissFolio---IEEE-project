@@ -133,7 +133,7 @@ nav ul li .dropdown a{
   color: transparent;
   transform: translate(2px);
   background-clip: text;
-}nav button{
+} button{
   background:linear-gradient(90deg, #352d67, #473e84, #726691);
   color: var(--text-color-white);
   font-size: 16px;
@@ -144,11 +144,11 @@ nav ul li .dropdown a{
   position: relative;
   cursor: pointer;
 }
-nav button:hover {
+ button:hover {
   /* background: linear-gradient(90deg, #473e84, #ac9adb, #c08497); */
   transform: translateY(-4px);
   box-shadow: 0 8px 25px rgba(192, 132, 151, 0.35); 
-}nav button:active{
+} button:active{
   transform: translate(3px);
 }
 nav .click{
@@ -297,7 +297,6 @@ nav ul .fa-circle-xmark:active{
   position: relative;
   z-index: 2;
   max-width: 700px;
-  margin: 0 auto;
 }
 
 .hero h1 {
@@ -336,26 +335,6 @@ nav ul .fa-circle-xmark:active{
   color: var(--text-color-white);
   text-shadow: 0 0 5px var(--text-color-purple);
 }
-
-.hero button{
-  background:linear-gradient(90deg, #352d67, #473e84, #726691);
-  color: var(--text-color-white);
-  font-size: 16px;
-  padding: 10px 25px;
-  border: none;
-  border-radius: 20px;
-  transition: 0.5s;
-  position: relative;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-.hero button:hover {
-  background: linear-gradient(90deg, #473e84, #ac9adb, #c08497);
-  transform: translateY(-4px);
-  box-shadow: 0 8px 25px rgba(192, 132, 151, 0.35); 
-}
-
-
 
 .shapes .shape {
   position: absolute;
@@ -415,9 +394,8 @@ nav ul .fa-circle-xmark:active{
 
 /* Start Skill */
 .skill_section p , .journey p {
-    margin-top: 1em;
-margin-bottom: 1em;
-
+    margin-top: 1em; 
+    margin-bottom: 1em;
 }
 
 .skill_section h4 , .journey h4 {
@@ -461,9 +439,7 @@ margin-bottom: 1em;
     transition: 0.3s;
     position: sticky;
     top: 100px;
-    align-self: flex-start;
-          
-
+    align-self: flex-start;        
 }
 
 .icon_list{
@@ -485,18 +461,15 @@ margin-bottom: 1em;
 
 .Sidebar h3{
 
-    text-align: center;
-     font-size: 45px;
-   background:linear-gradient(90deg , #524b63, #9485bd);
-   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  text-align: center;
+  font-size: 45px;
+  background:linear-gradient(90deg , #524b63, #9485bd);
+  background-clip: text;
+  color: transparent;
   letter-spacing: 2px;
   word-spacing: 5px;
   margin: .5em;
-  
   margin-left:0 ;
-  
-
 }
 .Sidebar p{
      font-size: 22px;
@@ -505,16 +478,12 @@ margin-bottom: 1em;
   /* padding: 5px; */
   align-self: center;
   margin: 20px 0 , ;
-
-
-
 }
 .Sidebar .icon_list p
 {
     color:#ded6f6;
-font-size: 25px;    
+    font-size: 25px;    
 }
-
 
 .journey_Content{
     padding: 7%;
@@ -527,12 +496,8 @@ font-size: 25px;
 }
 
 .even{
-
     justify-self: end;
-
 }
-
-
 
 .Cards{
     width: 70%;
@@ -650,26 +615,27 @@ flex-wrap: wrap
     justify-self: start;
     margin-left: 0;
     letter-spacing: 3px;
-    animation: show 1s initial ease forwards;
+    animation: show 1s ease forwards;
    animation-timeline: view();
-   animation-range:  entry 0% cover 40%;
+   /* animation-range:  entry 0% cover 40%; */
    font-size: 35px;
    background: linear-gradient(white,white,var(--text-color-purple),var(--button-background-color));
    margin-bottom: 50px ;
    background-clip: text;
    color: transparent;
-    
+
 }
 
  @keyframes show{
+  from{
+    opacity: 0;
+    transform: scale(0.7);
+  }
   to{
     opacity: 1;
     transform: scale(1);
   }
 }
-
-
-
 
 
  @media (max-width: 768px) {
@@ -832,16 +798,8 @@ background: linear-gradient(120deg, rgba(75, 25, 161, 0.136), rgba(223, 39, 149,
 
 /* Projects */
 .projects {
-      color: var(--text-color-white);
       padding: 70px 7%;
-  }
-
-  .projects-header h2 {
-      text-align: center;
-      color: var(--text-color-white);
-      font-size: 40px;
-      margin-bottom: 50px;
-  }
+}
 
   .projects-container {
       display: flex;
@@ -853,7 +811,7 @@ background: linear-gradient(120deg, rgba(75, 25, 161, 0.136), rgba(223, 39, 149,
   .project-card {
       background-color: var(--section-background-color);
       border-radius: 15px;
-      width: 100%;
+      
       max-width: 300px;
       padding: 15px;
       display: flex;
@@ -864,9 +822,8 @@ background: linear-gradient(120deg, rgba(75, 25, 161, 0.136), rgba(223, 39, 149,
       animation: slideIn 1s ease forwards;
       animation-timeline: view();
       animation-range: entry 0% cover 40%;
-
-       position: relative;   /* 👈 ضيفي دي */
-    overflow: hidden;
+      position: relative; 
+      overflow: hidden;
   }
 
   .project-card:hover {
@@ -914,39 +871,15 @@ background: linear-gradient(120deg, rgba(75, 25, 161, 0.136), rgba(223, 39, 149,
       object-fit: cover;
       position: relative;
         display: block;
-        filter: blur(5px) ;
+      filter: blur(5px) brightness(0.6) grayscale(50%);
+      transition: 0.5s;
   }
-/* .project-card img::before {
-    content: "";
-    position: absolute;
-    top: 15px;            
-    left: 15px;
-    right: 15px;
-    height: 100%;       
-    background: rgba(193, 170, 88, 0.35); 
-    border-radius: 10px;
-    transition: 0.2s ease-in;
-    pointer-events: none;
-    backdrop-filter: blur(2px);
-    -webkit-backdrop-filter: blur(10px);
-    transition: 0.3s;
-    opacity: 1;
-}
-.project-card:hover img::before {
-    height: 0;
-    top: unset;
-    bottom: 0;
-    opacity: 0;
-} */
 
 .project-card:hover img{
   filter: unset;
+  transform: scale(1.01);
 }
-.project-card button:hover {
-  /* background: linear-gradient(90deg, #473e84, #ac9adb, #c08497); */
-  transform: translateY(-4px);
-  box-shadow: 0 8px 25px rgba(192, 132, 151, 0.35); 
-}
+
   .project-card h3 {
       font-size: 20px;
       margin-bottom: 10px;
@@ -960,28 +893,6 @@ background: linear-gradient(120deg, rgba(75, 25, 161, 0.136), rgba(223, 39, 149,
       text-align: center;
       margin-bottom: 15px;
       color: #aaa;
-  }
-
-  .project-card button {
-      background: linear-gradient(90deg, #352d67, #473e84, #726691);
-      color: var(--text-color-white);
-      font-size: 16px;
-      padding: 10px 25px;
-      border: none;
-      border-radius: 20px;
-      transition: 0.5s;
-      position: relative;
-      cursor: pointer;
-  }
-
-  .project-card:hover button,
-  .project-card:hover img {
-      transform: scale(1.01);
-      transition-duration: 0.5s;
-  }
-
-  .project-card:hover button {
-      transform: scale(1.05);
   }
 
   @keyframes slideIn {
@@ -1045,10 +956,6 @@ background: linear-gradient(120deg, rgba(75, 25, 161, 0.136), rgba(223, 39, 149,
           height: 180px;
       }
 
-      .project-card button {
-          font-size: 14px;
-          padding: 8px 20px;
-      }
 
   }
 /* End Projects */
